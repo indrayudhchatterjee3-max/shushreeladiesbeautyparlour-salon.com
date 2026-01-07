@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sushree Ladies Beauty Parlour | Chinsurah</title>
+  <meta name="description" content="Sushree Ladies Beauty Parlour, Chinsurah – Professional bridal makeup, facial, hair spa, manicure & pedicure. Book appointments online or via WhatsApp." />
+
+  <style>
+    :root {
+      --primary: #e91e63;
+      --secondary: #fce4ec;
+      --dark: #333;
+      --light: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #fff7f9;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9') center/cover no-repeat;
+      color: white;
+    }
+
+    .hero h1 { font-size: 2.6rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.1rem; margin-bottom: 25px; }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary);
+    }
+
+    .services,
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .why-us {
+      background: var(--secondary);
+      border-radius: 20px;
+    }
+
+    /* FORM */
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--primary);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* FLOATING BUTTONS */
+    .social {
+      position: fixed;
+      right: 20px;
+      padding: 14px 18px;
+      border-radius: 50px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .whatsapp { bottom: 20px; background: #25D366; }
+    .instagram { bottom: 80px; background: #C13584; }
+    .facebook { bottom: 140px; background: #1877F2; }
+
+    /* REVIEWS SLIDER */
+    .review-slider {
+      max-width: 700px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .review {
+      display: none;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: fade 0.6s ease-in-out;
+    }
+
+    .review.active { display: block; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      header h2 { font-size: 1.2rem; text-align: center; width: 100%; }
+      nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-container">
+    <h2>Sushree Ladies Beauty Parlour</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#appointment">Appointment</a>
+      <a href="#contact">Location</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <h1>Beautiful You Starts Here</h1>
+    <p>Ladies-only beauty parlour in Chinsurah</p>
+    <a class="btn" href="https://wa.me/919999999999">Book on WhatsApp</a>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <h2>Service Price List</h2>
+  <div class="services">
+    <div class="card"><h3>Facial</h3><p>Starting from ₹799</p></div>
+    <div class="card"><h3>Hair Spa</h3><p>Starting from ₹999</p></div>
+    <div class="card"><h3>Bridal Makeup</h3><p>Starting from ₹6,999</p></div>
+    <div class="card"><h3>Manicure & Pedicure</h3><p>Starting from ₹499</p></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">Eyebrow + Forehead</div>
+    <div class="card">Upper Lip + Chin</div>
+    <div class="card">Haircut</div>
+    <div class="card">Waxing</div>
+    <div class="card">Pedicure</div>
+    <div class="card">Manicure</div>
+    <div class="card">Body Spa</div>
+    <div class="card">Hair Spa</div>
+    <div class="card">Facial</div>
+    <div class="card">Scalp Treatment</div>
+    <div class="card">Hair Wash + Mask</div>
+    <div class="card">Face Massage</div>
+    <div class="card">Body Massage</div>
+    <div class="card">Pain Relief Massage</div>
+    <div class="card">Piercing</div>
+    <div class="card">Hair Colour</div>
+    <div class="card">Highlights</div>
+    <div class="card">Touch‑up</div>
+    <div class="card">Chemical Treatment</div>
+    <div class="card">Party Makeup</div>
+    <div class="card">Bridal Makeup</div>
+  </div>
+</section>
+
+<section class="section why-us">
+  <h2>Why Choose Us</h2>
+  <div class="why-grid">
+    <div class="card">✔ Experienced Beauticians</div>
+    <div class="card">✔ Hygienic Ladies-Only Space</div>
+    <div class="card">✔ Affordable Packages</div>
+    <div class="card">✔ Trusted by Local Customers</div>
+  </div>
+</section>
+
+<section class="section" id="appointment">
+  <h2>Book Online Appointment</h2>
+  <form id="appointmentForm">
+    <input type="text" placeholder="Your Name" required />
+    <input type="tel" placeholder="Mobile Number" required />
+    <select required>
+      <option value="">Select Service</option>
+      <option>Facial</option>
+      <option>Hair Service</option>
+      <option>Bridal Makeup</option>
+      <option>Manicure / Pedicure</option>
+    </select>
+    <input type="date" required />
+    <textarea placeholder="Any message (optional)"></textarea>
+    <button class="btn" type="submit">Submit Appointment</button>
+  </form>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Visit Us & Contact</h2>
+  <p>📧 Email: <a href="mailto:tanimachaterjee274@gmail.com" style="color:#fff;text-decoration:underline">tanimachaterjee274@gmail.com</a></p>
+  <h2>Visit Us</h2>
+  <p>📍 Lokenath Apartment, Ground Floor, Chowk Bazar, Police Phari</p>
+  <p>Chinsurah, West Bengal – 712103</p>
+  <p>🕒 10:00 AM – 8:00 PM</p>
+
+  <iframe src="https://www.google.com/maps?q=Lokenath%20Apartment%20Chowk%20Bazar%20Chinsurah%20712103&output=embed"></iframe>
+</section>
+
+<section class="section" id="reviews">
+  <h2>Customer Reviews</h2>
+  <p style="text-align:center;margin-bottom:20px">
+    <a class="btn" target="_blank" href="https://search.google.com/local/writereview?placeid=YOUR_PLACE_ID">⭐ Leave us a Google Review</a>
+  </p>
+  <h2>Customer Reviews</h2>
+  <div class="review-slider">
+    <div class="review active">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Amazing service! Very hygienic and professional staff. Highly recommended."</p>
+      <h4>– Riya S.</h4>
+    </div>
+    <div class="review">
+      <p>⭐⭐⭐⭐⭐</p>
+      <p>"Best bridal makeup in Chinsurah. Loved the final look!"</p>
+      <h4>– Ananya M.</h4>
+    </div>
+    <div class="review">
+      <p>⭐⭐⭐⭐</p>
+      <p>"Affordable packages and very friendly behaviour."</p>
+      <h4>– Pooja D.</h4>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="enquiry">
+  <h2>Quick Enquiry</h2>
+  <form id="enquiryForm">
+    <input type="text" placeholder="Your Name" required />
+    <input type="tel" placeholder="Mobile Number" required />
+    <input type="email" placeholder="Email (optional)" />
+    <textarea placeholder="Your Enquiry" required></textarea>
+    <button class="btn" type="submit">Send Enquiry</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Sushree Ladies Beauty Parlour | Chinsurah</p>
+</footer>
+
+<script>
+/* WHATSAPP + EMAIL AUTO SEND */
+function sendWhatsApp(formId, serviceType) {
+  const form = document.getElementById(formId);
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    let message = `*New ${serviceType}*%0A`;
+    data.forEach((value, key) => {
+      message += `*${key}*: ${value}%0A`;
+    });
+    window.open(`https://wa.me/919999999999?text=${message}`, '_blank');
+    form.reset();
+  });
+}
+
+sendWhatsApp('appointmentForm','Appointment Request');
+sendWhatsApp('enquiryForm','Customer Enquiry');
+
+/* GOOGLE REVIEWS STYLE STAR */
+document.querySelectorAll('.stars').forEach(star => {
+  star.innerHTML = '★★★★★';
+});
+</script>
+
+<a class="social whatsapp" href="https://wa.me/919999999999">WhatsApp</a>
+<a class="social instagram" href="https://www.instagram.com/sushree_salon_and_spa">Instagram</a>
+<a class="social facebook" href="https://www.facebook.com/">Facebook</a>
+
+<script>
+  const reviews = document.querySelectorAll('.review');
+  let currentReview = 0;
+
+  setInterval(() => {
+    reviews[currentReview].classList.remove('active');
+    currentReview = (currentReview + 1) % reviews.length;
+    reviews[currentReview].classList.add('active');
+  }, 4000);
+</script>
+
+<!-- ADMIN LOGIN (BASIC) -->
+<div id="adminPanel" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;z-index:9999;padding:40px;overflow:auto">
+  <h2>Admin Panel (Future Ready)</h2>
+  <p>Connected to Google Sheets & Forms</p>
+  <button class="btn" onclick="document.getElementById('adminPanel').style.display='none'">Close</button>
+</div>
+
+<script>
+/* GOOGLE FORM → SHEETS */
+// Replace action URL with your Google Form POST link
+// This will automatically save data to Google Sheets
+
+/* EMAIL SENDING (EmailJS placeholder) */
+// emailjs.send('SERVICE_ID','TEMPLATE_ID', data)
+
+/* ADMIN ACCESS */
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && e.key === 'a') {
+    document.getElementById('adminPanel').style.display = 'block';
+  }
+});
+</script>
+</body>
+</html>
